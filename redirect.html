@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="referrer" content="no-referrer" />
+    <title>Microsoft-aanmelding afronden</title>
+  </head>
+  <body>
+    <p>Microsoft-aanmelding wordt afgerond…</p>
+    <script type="module">
+      import {broadcastResponseToMainFrame} from '@azure/msal-browser/redirect-bridge';
+      broadcastResponseToMainFrame().catch(() => {
+        document.body.textContent = 'Aanmelding kon niet worden afgerond. Sluit dit venster en probeer opnieuw.';
+      });
+    </script>
+  </body>
+</html>

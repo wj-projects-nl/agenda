@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="no-referrer" />
+    <title>WJ Projects Agenda</title>
+    <style>
+      :root{font-family:Montserrat,Arial,sans-serif;color:#272726;background:#f8f7f4;color-scheme:light}
+      *{box-sizing:border-box}body{margin:0}main{max-width:820px;margin:32px auto;padding:0 18px}
+      header{background:#272726;color:#fff;padding:23px 25px;border-bottom:4px solid #fcc75f;border-radius:8px 8px 0 0}
+      header small{color:#fcc75f;text-transform:uppercase;letter-spacing:.05em;font-weight:700}
+      h1{font-size:23px;margin:8px 0 0}section{padding:24px;background:#fff;border:1px solid #e5e1d8;border-radius:0 0 8px 8px}
+      button{padding:10px 16px;font:inherit;border:1px solid #272726;border-radius:6px;background:#fff;color:#272726;cursor:pointer}
+      button.primary{background:#272726;color:#fcc75f;font-weight:600}button:disabled{opacity:.6;cursor:wait}
+      .actions{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:15px}.muted{color:#706f69;font-size:13px}
+      #status{border-left:3px solid #fcc75f;background:#f8f7f4;padding:13px;margin:16px 0;white-space:pre-line}
+      #status[role=alert]{border-color:#aa2929;background:#fff3f3}
+      ul{list-style:none;margin:0;padding:0}li{border-top:1px solid #e8e6e0;padding:13px 0}
+      .time{font-size:12px;color:#6d655d;display:block;margin-bottom:3px}
+      .subject{font-weight:600}a{color:#373635}a:hover{text-decoration:none}
+      @media(max-width:600px){main{margin:12px auto}section{padding:18px}}
+    </style>
+    <script type="module" src="./src/main.js"></script>
+  </head>
+  <body>
+    <main>
+      <header><small>WJ Projects Agenda</small><h1>Outlook-agenda koppelen</h1></header>
+      <section>
+        <p>Dit is uitsluitend een technische proef. Outlook blijft de bron van afspraken. Er worden hier geen afspraken aangemaakt, gewijzigd of verwijderd.</p>
+        <div class="actions">
+          <button type="button" id="connect" class="primary" disabled>Inloggen met Microsoft</button>
+          <button type="button" id="refresh" disabled>Afspraken ophalen</button>
+          <button type="button" id="signout" disabled>Afmelden</button>
+        </div>
+        <p id="account" class="muted">Niet aangemeld</p>
+        <div id="status" role="status" aria-live="polite">Microsoft-koppeling wordt voorbereid…</div>
+        <h2>Afspraken voor de komende 14 dagen</h2>
+        <ul id="events" aria-live="polite"></ul>
+        <p class="muted">De agenda wordt rechtstreeks via Microsoft Graph uit jouw Microsoft 365-account gelezen. Er worden geen aanmeldtokens of afspraken op GitHub opgeslagen.</p>
+      </section>
+    </main>
+  </body>
+</html>

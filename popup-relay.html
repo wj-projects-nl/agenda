@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="referrer" content="no-referrer" />
+    <title>WJ Projects Microsoft-aanmelding</title>
+  </head>
+  <body>
+    <p>Je wordt aangemeld bij de Microsoft 365-omgeving van WJ Projects.</p>
+    <button id="continue" type="button">Doorgaan met Microsoft</button>
+    <p id="error" role="alert"></p>
+    <script type="module">
+      import {runPopupRelay} from '@azure/msal-browser/popup-relay';
+      document.getElementById('continue').addEventListener('click', () => {
+        document.getElementById('continue').disabled = true;
+        runPopupRelay({allowedAuthorityOrigins: ['https://login.microsoftonline.com']})
+          .catch(() => {
+            document.getElementById('error').textContent = 'Aanmelden is niet gelukt. Sluit dit venster en probeer opnieuw.';
+            document.getElementById('continue').disabled = false;
+          });
+      });
+    </script>
+  </body>
+</html>
