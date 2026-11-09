@@ -1,3 +1,4 @@
+// Tijdelijke publicatietest: canonieke bron moet deze regel verwijderen.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {CalendarReadError, readUpcomingEvents, formatEventDate, isWjTenantAccount} from '../src/graph-calendar.js';
